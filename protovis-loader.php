@@ -32,16 +32,17 @@ Copyright 2010 Sean Carmody  (email : sean@stubbornmule.net)
 
 /*
 Conditionally load the Protovis library
-Technique taken from beer planet:
-http://beerpla.net
-http://bit.ly/8Tuh1O
+The technique used here is taken from beer planet:
+http://beerpla.net http://bit.ly/8Tuh1O
 */
 
 add_filter( 'the_posts', 'conditionally_add_pv' ); // the_posts gets triggered before wp_head
+
 function conditionally_add_pv( $posts ){
 	if ( empty( $posts ) ) return $posts;
  
 	$shortcode_found = false; // this flag is triggered if the library need to be enqueued
+
 	foreach ( $posts as $post ) {
 		if ( stripos( $post->post_content, 'pvis' ) ) { // look for the string 'pvis'
 			$shortcode_found = true;
@@ -57,10 +58,16 @@ function conditionally_add_pv( $posts ){
  
 	return $posts;
 }
-// TO-DO: use a variable for the shortcode
+
+// TO-DO: use a variable for the shortcode rather than
+// specifying it in multiple places.
 
 // Function to slurp in your javascript code
-function sProtovisLoad( $atts, $content = null ) {
+function sc_protovis_load( $atts, $content = null ) {
+
+	// src = url for javascript file
+	// img = alternative image for noscript/non-supporting browser
+	// alt = alternative text for image
 	extract( shortcode_atts( array(
 		'src' => '',
 		'img' => '',
@@ -70,10 +77,12 @@ function sProtovisLoad( $atts, $content = null ) {
 	// Check for browsers which does not support SVG
 	$using_ie = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE' ) !== FALSE);
 	$using_android = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== FALSE );
-	
+
+	// Set default alt text string is none supplied	
 	if ( !$alt )
 		$alt = 'Scripts disabled, cannot display chart!';
 
+	// Set an image if one is supplied
 	if ( $img )
 		$no_script = "<img src='$img' alt='$alt'>";
 	else
@@ -86,16 +95,18 @@ function sProtovisLoad( $atts, $content = null ) {
 		$script = file_get_contents($src);
 		$script = '<script type="text/javascript+protovis">'."\n".$script.'</script>';
 	}
-	
+
+	// Set caption string if supplied	
 	if ( $content )
 		$caption = '<p align="center"><strong>'.do_shortcode($content).'</strong></p>';
 	else
 		$caption = '';
 
+	// Bundle it all up
 	return $script.$no_script.$caption;
 }
 
-// Associate shortcode to function
-add_shortcode( 'pvis', 'sProtovisLoad' );
+// Associate shortcode to sc_protovis_load function
+add_shortcode( 'pvis', 'sc_protovis_load' );
 
 ?>
