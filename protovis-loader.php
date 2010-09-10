@@ -7,7 +7,7 @@
 Plugin Name: Protovis Loader
 Plugin URI: http://www.stubbornmule.net/#
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
-Author: Sean Carmody
+Author: seancarmody
 Version: 0.1
 Author URI: http://www.stubbornmule.net/about/
 License: GPL2
@@ -28,46 +28,45 @@ Copyright 2010 Sean Carmody  (email : sean@stubbornmule.net)
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-/* Conditionally load the Protovis library
+/*
+Conditionally load the Protovis library
 Technique taken from beer planet:
-http://beerpla.net/2010/01/13/wordpress-plugin-development-how-to-include-css-and-javascript-conditionally-and-only-when-needed-by-the-posts/
+http://beerpla.net
+http://bit.ly/8Tuh1O
 */
 
 // TO-DO: use a variable for the shortcode
-add_filter('the_posts', 'conditionally_add_pv'); // the_posts gets triggered before wp_head
-function conditionally_add_pv($posts){
-	if (empty($posts)) return $posts;
+add_filter( 'the_posts', 'conditionally_add_pv' ); // the_posts gets triggered before wp_head
+function conditionally_add_pv( $posts ){
+	if ( empty( $posts ) ) return $posts;
  
 	$shortcode_found = false; // this flag is triggered if the library need to be enqueued
-	foreach ($posts as $post) {
-		if (stripos($post->post_content, 'pvis')) { // look for the string 'pvis'
+	foreach ( $posts as $post ) {
+		if ( stripos( $post->post_content, 'pvis' ) ) { // look for the string 'pvis'
 			$shortcode_found = true;
 			break;
 		}
 	}
  
-	if ($shortcode_found) {
+	if ( $shortcode_found ) {
 		// place-holder to enqueue CSS as well
-		//wp_enqueue_style('my-style', '/style.css');
-		wp_enqueue_script('protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js');
+		//wp_enqueue_style( 'my-style', '/style.css' );
+		wp_enqueue_script( 'protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js' );
 	}
  
 	return $posts;
 }
 
-// Uncomment to force library to load every time
-//wp_enqueue_script('protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js');
-
-function sProtovisLoad($atts, $content = null) {
-	extract(shortcode_atts(array(
+function sProtovisLoad( $atts, $content = null ) {
+	extract( shortcode_atts( array(
 		'src' => '',
 		'img' => '',
 		'alt' => '',
-	), $atts));
+	), $atts ) );
 	
 	// Check for browsers which does not support SVG
-	$using_ie = (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE);
-	$using_android = (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== FALSE);
+	$using_ie = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE' ) !== FALSE);
+	$using_android = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== FALSE );
 	
 	if ( !$alt )
 		$alt = 'Scripts disabled, cannot display chart!';
@@ -92,6 +91,6 @@ function sProtovisLoad($atts, $content = null) {
 
 	return $script.$no_script.$caption;
 }
-add_shortcode('pvis', 'sProtovisLoad');
+add_shortcode( 'pvis', 'sProtovisLoad' );
 
 ?>
