@@ -4,7 +4,7 @@ Donate link: http://twitter.com/seancarmody
 Tags: protovis, data-visualization, charts, graphics
 Requires at least: 2.8.0
 Tested up to: 3.0.1
-Stable tag: 0.1
+Stable tag: 0.1.1
 
 Creates a shortcode to faciliate the use of Protovis scripts.
 
@@ -33,7 +33,7 @@ You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/reso
 
 Here is an example:
 
-	[pvis src="/scripts/pv/my-chart.js" img="/images/fail.png"]My caption[/pvis]
+	[pvis src="/scripts/chart.js" img="/images/fail.png"]A caption[/pvis]
 
 
 Attributes:

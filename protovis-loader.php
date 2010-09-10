@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Protovis_Loader
- * @version 0.1
+ * @version 0.1.1
  */
 /*
 Plugin Name: Protovis Loader
@@ -37,7 +37,6 @@ http://beerpla.net
 http://bit.ly/8Tuh1O
 */
 
-// TO-DO: use a variable for the shortcode
 add_filter( 'the_posts', 'conditionally_add_pv' ); // the_posts gets triggered before wp_head
 function conditionally_add_pv( $posts ){
 	if ( empty( $posts ) ) return $posts;
@@ -58,7 +57,9 @@ function conditionally_add_pv( $posts ){
  
 	return $posts;
 }
+// TO-DO: use a variable for the shortcode
 
+// Function to slurp in your javascript code
 function sProtovisLoad( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'src' => '',
@@ -93,6 +94,8 @@ function sProtovisLoad( $atts, $content = null ) {
 
 	return $script.$no_script.$caption;
 }
+
+// Associate shortcode to function
 add_shortcode( 'pvis', 'sProtovisLoad' );
 
 ?>
