@@ -17,7 +17,7 @@ Incorporating Javascript code into WordPress posts can be tricky as it (delibera
 Protovis Loader makes the whole process a lot easier in two ways:
 
 1. It ships with a copy of the Protovis javascript library and once the plugin is activated, links to the library will automatically be included in page headers.
-1. It creates a “shortcode” which makes it very easy to include Protovis scripts in blog posts and pages.
+1. It creates a shortcode called [pvis] which makes it very easy to include Protovis scripts in blog posts and pages.
 
 You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/resources/protovis-loader/).
 
@@ -25,7 +25,7 @@ You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/reso
 
 1. Upload 'pv-loader' to the '/wp-content/plugins/' directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Use the [pvis] shortcode to add protovis code to your post
+1. Use the [pvis] shortcode to add protovis code to your post (see [Screenshots](http://wordpress.org/extend/plugins/protovis-loader/screenshots/) for an example)
 
 == Frequently Asked Questions ==
 
@@ -33,15 +33,16 @@ You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/reso
 
 Here is an example:
 
-[pvis src="/scripts/pv/my-chart.js" img="images/fail.png"]My caption[/pvis]
+	[pvis src="/scripts/pv/my-chart.js" img="images/fail.png"]My caption[/pvis]
 
-src specifies the location of the protovis script
-img specifes the URL of an image to display instead if scripts are blocked
-alt speficies image alternative text
+Attributes:
+* src: specifies the location of the protovis script
+* img specifes the URL of an image to display instead if scripts are blocked
+* alt speficies image alternative text
 
-text between the tags will be set as a caption
+Text between the tags will be set as a caption
 
-= Is there any CSS control possible =
+= Can I specifiy  any CSS? =
 
 Not yet.
 
