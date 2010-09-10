@@ -68,6 +68,9 @@ Not yet.
 
 == Upgrade Notice ==
 
+= 0.1.1 =
+A variety of very minor tweaks, mainly adhereing to WP coding standards.
+
 = 0.1 =
 * First release version
 
