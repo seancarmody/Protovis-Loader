@@ -5,13 +5,15 @@
  */
 /*
 Plugin Name: Protovis Loader
-Plugin URI: http://www.stubbornmule.net/#
+Plugin URI: http://wordpress.org/extend/plugins/protovis-loader/
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
-Author: seancarmody
+Author: Seab Carmody
 Version: 0.1
-Author URI: http://www.stubbornmule.net/about/
+Author URI: http://profiles.wordpress.org/users/seancarmody/
 License: GPL2
+*/
 
+/*
 Copyright 2010 Sean Carmody  (email : sean@stubbornmule.net)
 
     This program is free software; you can redistribute it and/or modify

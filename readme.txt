@@ -1,7 +1,7 @@
 === Protovis Loader ===
 Contributors: seancarmody
 Donate link: http://twitter.com/seancarmody
-Tags: protovis, data visualization, charts
+Tags: protovis, data-visualization, charts, graphics
 Requires at least: 2.8.0
 Tested up to: 3.0.1
 Stable tag: 0.1
