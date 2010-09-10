@@ -33,9 +33,10 @@ You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/reso
 
 Here is an example:
 
-	[pvis src="/scripts/pv/my-chart.js" img="images/fail.png"]My caption[/pvis]
+	[pvis src="/scripts/pv/my-chart.js" img="/images/fail.png"]My caption[/pvis]
 
 Attributes:
+
 * src: specifies the location of the protovis script
 * img specifes the URL of an image to display instead if scripts are blocked
 * alt speficies image alternative text
