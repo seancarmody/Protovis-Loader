@@ -35,11 +35,12 @@ Here is an example:
 
 	[pvis src="/scripts/pv/my-chart.js" img="/images/fail.png"]My caption[/pvis]
 
+
 Attributes:
 
 * src: specifies the location of the protovis script
-* img specifes the URL of an image to display instead if scripts are blocked
-* alt speficies image alternative text
+* img: specifes the URL of an image to display instead if scripts are blocked
+* alt: speficies image alternative text
 
 Text between the tags will be set as a caption
 
