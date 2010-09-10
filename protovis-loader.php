@@ -8,7 +8,7 @@ Plugin Name: Protovis Loader
 Plugin URI: http://wordpress.org/extend/plugins/protovis-loader/
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
 Author: Sean Carmody
-Version: 0.1
+Version: 0.1.1
 Author URI: http://profiles.wordpress.org/users/seancarmody/
 License: GPL2
 */
