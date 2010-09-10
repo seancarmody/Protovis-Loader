@@ -6,11 +6,11 @@ Requires at least: 2.8.0
 Tested up to: 3.0.1
 Stable tag: 0.1
 
-Creates a shortcode to faciliate the use of [Protovis](http://vis.stanford.edu/protovis/) scripts.
+Creates a shortcode to faciliate the use of Protovis scripts.
 
 == Description ==
 
-Protovis Loader is a plugin which faciliates the use of Protovis  scripts. Protovis is a javascript data visualisation library being developed at Stanford, which allows the creation of interactive charts on web pages.
+Protovis Loader is a plugin which faciliates the use of [Protovis](http://vis.stanford.edu/protovis/) scripts. Protovis is a javascript data visualisation library being developed at Stanford, which allows the creation of interactive charts on web pages.
 
 Incorporating Javascript code into WordPress posts can be tricky as it (deliberately) sanitises text typed into posts, which interferes with Javascript. When I first began experimenting with Javascript, this cause me some difficulties, as described in this post. In the end, I decided to roll up my sleeves and write a plugin to make the whole process a lot easier. Protovis Loader was the result.
 
@@ -58,6 +58,16 @@ Not yet.
 1. Using the shortcode in [a blog post](http://www.stubbornmule.net/2010/09/protovis-for-chrome-and-safari/)
 1. The end result.
 
+== Changelog ==
+
+= 0.1 =
+* The first release of the plugin.
+
+== Upgrade Notice ==
+
+= 0.1 =
+* First release version
+
 == To-Do List ==
 
 This list is not really prioritised yet.
@@ -71,7 +81,3 @@ This list is not really prioritised yet.
 
 I'm sure there'll be a lot more!
 
-== Changelog ==
-
-= 0.1 =
-* The first release of the plugin.
