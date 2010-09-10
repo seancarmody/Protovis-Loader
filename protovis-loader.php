@@ -8,7 +8,7 @@ Plugin Name: Protovis Loader
 Plugin URI: http://www.stubbornmule.net/#
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
 Author: Sean Carmody
-Version: 0.0.1
+Version: 0.1
 Author URI: http://www.stubbornmule.net/about/
 License: GPL2
 
