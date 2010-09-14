@@ -82,7 +82,6 @@ Upgrade to get the first cut of CSS styling.
 This list is not really prioritised yet.
 
 1. Improve user-agent (browser) detection
-1. Allow selective inclusion of the Protovis library in headers (at the moment it will be loaded for every page, whether you use it or not). -- DONE!!
 1. Create an options page
 1. Incorporate CSS support
 1. Allow for alterntive specification of the protovis js library
