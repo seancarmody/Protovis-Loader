@@ -37,12 +37,15 @@ http://beerpla.net
 http://bit.ly/8Tuh1O
 */
 
-add_filter( 'the_posts', 'pvl_conditionally_load_lib' ); // the_posts gets triggered before wp_head
+// The Protovis library and style-sheet are only loaded if the shortcode is used
+add_filter( 'the_posts', 'pvl_conditionally_load' );
 
-function pvl_conditionally_load_lib( $posts ){
+// TO-DO: use a variable for the shortcode name
+
+function pvl_conditionally_load( $posts ){
 	if ( empty( $posts ) ) return $posts;
  
-	$shortcode_found = false; // this flag is triggered if the library need to be enqueued
+	$shortcode_found = false; 
 	foreach ( $posts as $post ) {
 		if ( stripos( $post->post_content, 'pvis' ) ) { // look for the string 'pvis'
 			$shortcode_found = true;
@@ -51,15 +54,14 @@ function pvl_conditionally_load_lib( $posts ){
 	}
  
 	if ( $shortcode_found ) {
-		// place-holder to enqueue CSS as well
-		//wp_enqueue_style( 'my-style', '/style.css' );
-		wp_enqueue_script( 'protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js' );
+		// Load css stylesheet and javascript library
+		wp_enqueue_style( 'protovis-style', WP_PLUGIN_URL.'/protovis-loader/css/pvl-standard.css' );
+		wp_enqueue_script( 'protovis-lib', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js' );
 	}
  
 	return $posts;
 }
 
-// TO-DO: use a variable for the shortcode name
 
 // Function to slurp in your javascript code
 function pvl_load_script( $atts, $content = null ) {
@@ -101,7 +103,8 @@ function pvl_load_script( $atts, $content = null ) {
 	else
 		$caption = '';
 
-	return $script.$no_script.$caption;
+	$css = '<div class="pvl-chart aligncenter">';
+	return $css.$script.$no_script.$caption.'</div>';
 }
 
 // Associate shortcode to function

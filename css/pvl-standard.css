@@ -1,0 +1,29 @@
+.pvl-chart {
+       border-style: solid;
+       border-color: #ddd;
+       background-color: #eee
+}
+
+.pvl-chart.alignleft {
+       float: left;
+}
+
+.pvl-chart.alignright {
+	float: right;
+}
+
+.pvl-chart.aligncenter {
+	margin-right: auto;
+	margin-left: auto;
+	float: none;
+	clear: both;
+}
+
+.pvl-chart.alignnone {
+	clear: both;
+}
+
+.pvl-caption-text {
+	text-align: center;
+	font-style: italic;
+}
