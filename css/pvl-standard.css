@@ -1,11 +1,13 @@
 .pvl-chart {
-       border-style: solid;
-       border-color: #ddd;
-       background-color: #eee
+	border-style: solid;
+	padding: 20px 10px 10px;
+	text-align: center;
+	border-color: #ddd;
+	background-color: #eee;
 }
 
 .pvl-chart.alignleft {
-       float: left;
+	float: left;
 }
 
 .pvl-chart.alignright {
@@ -24,6 +26,7 @@
 }
 
 .pvl-caption-text {
+	vertical-align: text-bottom;
 	text-align: center;
 	font-style: italic;
 }

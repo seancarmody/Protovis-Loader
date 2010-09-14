@@ -99,7 +99,7 @@ function pvl_load_script( $atts, $content = null ) {
 	}
 	
 	if ( $content )
-		$caption = '<p align="center"><strong>'.do_shortcode($content).'</strong></p>';
+		$caption = '<div class="pvl-caption-text">'.do_shortcode($content).'</div>';
 	else
 		$caption = '';
 
