@@ -3,7 +3,7 @@ Contributors: seancarmody
 Tags: protovis, datavisualization, charts, graphics
 Requires at least: 2.8.0
 Tested up to: 3.0.1
-Stable tag: 0.1.1
+Stable tag: 0.2.0
 
 Creates a shortcode to faciliate the use of Protovis data visualization scripts in blog posts.
 
@@ -66,6 +66,10 @@ Not yet.
 * The first release of the plugin.
 
 == Upgrade Notice ==
+
+= 0.2.0 =
+* Added CSS (fixed style at this point)
+* Added BlackBerry to the list of non-SVG browsers
 
 = 0.1.1 =
 A variety of very minor tweaks, mainly adhereing to WP coding standards.

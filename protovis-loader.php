@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Protovis_Loader
- * @version 0.1.1
+ * @version 0.2.0
  */
 /*
 Plugin Name: Protovis Loader
 Plugin URI: http://www.stubbornmule.net/resources/protovis-loader/
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
 Author: Sean Carmody
-Version: 0.1.1
+Version: 0.2.0
 Author URI: http://www.stubbornmule.net/
 License: GPL2
 */
