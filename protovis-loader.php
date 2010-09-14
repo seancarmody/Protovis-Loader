@@ -70,8 +70,14 @@ function pvl_load_script( $atts, $content = null ) {
 	), $atts ) );
 	
 	// Check for browsers which does not support SVG
-	$using_ie = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE' ) !== FALSE);
-	$using_android = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== FALSE );
+	$non_svg = array('MSIE', 'Android', 'BlackBerry');
+	$using_non_svg = FALSE;
+	foreach ( $non_svg as $str)
+		if (strpos ( $_SERVER['HTTP_USER_AGENT'], $str) !== FALSE )
+			$using $non_svg = TRUE;
+
+	//$using_ie = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE' ) !== FALSE);
+	//$using_android = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== FALSE );
 	
 	if ( !$alt )
 		$alt = 'Scripts disabled, cannot display chart!';
@@ -81,7 +87,8 @@ function pvl_load_script( $atts, $content = null ) {
 	else
 		$no_script = $alt;
 	
-	if ( $using_ie || $using_android )
+	//if ( $using_ie || $using_android )
+	if ( $using_non_svg )
 		$script = '';
 	else {
 		$no_script = "<noscript>$no_script</noscript>";
