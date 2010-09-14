@@ -66,6 +66,7 @@ function pvl_conditionally_load( $posts ){
 // Function to slurp in your javascript code
 function pvl_load_script( $atts, $content = null ) {
 	extract( shortcode_atts( array(
+		'type' => '',
 		'src' => '',
 		'img' => '',
 		'alt' => '',
@@ -104,7 +105,10 @@ function pvl_load_script( $atts, $content = null ) {
 		$caption = '';
 
 	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas"';
-	return $css.$script.$no_script.'</div>'.$caption.'</div><br />';
+	if ( $type == 'inline')
+		return $script.$noscript;
+	else
+		return $css.$script.$no_script.'</div>'.$caption.'</div><br />';
 }
 
 // Associate shortcode to function
