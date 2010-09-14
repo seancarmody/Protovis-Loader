@@ -1,9 +1,19 @@
 .pvl-chart {
 	border-style: solid;
-	padding: 20px 10px 10px;
+	border-width: 1px;
+	padding: 5px;
 	text-align: center;
 	border-color: #ddd;
 	background-color: #eee;
+}
+
+.pvl-canvas {
+	border-style: solid;
+	border-width: 1px;
+	text-align: center;
+	border-color: #ddd;
+	background-color: #fff;
+	padding: 10px
 }
 
 .pvl-chart.alignleft {

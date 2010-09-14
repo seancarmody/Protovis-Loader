@@ -103,8 +103,8 @@ function pvl_load_script( $atts, $content = null ) {
 	else
 		$caption = '';
 
-	$css = '<div class="pvl-chart aligncenter">';
-	return $css.$script.$no_script.$caption.'</div>';
+	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas"';
+	return $css.$script.$no_script.'</div>'.$caption.'</div>';
 }
 
 // Associate shortcode to function
