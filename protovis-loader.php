@@ -91,18 +91,24 @@ function pvl_load_script( $atts, $content = null ) {
 		$no_script = $alt;
 	
 	//if ( $using_ie || $using_android )
-	if ( $using_non_svg )
-		$script = '';
-	else {
-		$no_script = "<noscript>$no_script</noscript>";
-		$script = file_get_contents($src);
-		$script = '<script type="text/javascript+protovis">'."\n".$script.'</script>';
-	}
-	
 	if ( $content )
 		$caption = '<div class="pvl-caption-text">'.do_shortcode($content).'</div>';
 	else
 		$caption = '';
+
+	if ( $using_non_svg )
+		$script = '';
+	else {
+		$no_script = "<noscript>$no_script</noscript>";
+		if ( $src )
+			$script = file_get_contents($src);
+		else {
+			$script = $caption
+			$type = 'inline'
+		}
+		$script = '<script type="text/javascript+protovis">'.$script.'</script>';
+	}
+	
 
 	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas"';
 	if ( $type == 'inline')
