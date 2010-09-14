@@ -62,11 +62,6 @@ Not yet.
 
 == Changelog ==
 
-= 0.1 =
-* The first release of the plugin.
-
-== Upgrade Notice ==
-
 = 0.2.0 =
 * Added CSS (fixed style at this point)
 * Added BlackBerry to the list of non-SVG browsers
@@ -75,7 +70,12 @@ Not yet.
 A variety of very minor tweaks, mainly adhereing to WP coding standards.
 
 = 0.1 =
-* First release version
+* The first release of the plugin.
+
+== Upgrade Notice ==
+
+= 0.2.0 =
+Upgrade to get the first cut of CSS styling.
 
 == To-Do List ==
 
