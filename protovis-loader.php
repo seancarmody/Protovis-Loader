@@ -70,11 +70,11 @@ function pvl_load_script( $atts, $content = null ) {
 	), $atts ) );
 	
 	// Check for browsers which does not support SVG
-	$non_svg = array('MSIE', 'Android', 'BlackBerry');
+	$non_svg = array( 'MSIE', 'Android', 'BlackBerry' );
 	$using_non_svg = FALSE;
 	foreach ( $non_svg as $str)
-		if (strpos ( $_SERVER['HTTP_USER_AGENT'], $str) !== FALSE )
-			$using $non_svg = TRUE;
+		if (strpos ( $_SERVER['HTTP_USER_AGENT'], $str ) !== FALSE )
+			$using_non_svg = TRUE;
 
 	//$using_ie = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE' ) !== FALSE);
 	//$using_android = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== FALSE );
