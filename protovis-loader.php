@@ -103,8 +103,8 @@ function pvl_load_script( $atts, $content = null ) {
 		if ( $src )
 			$script = file_get_contents($src);
 		else {
-			$script = $caption
-			$type = 'inline'
+			$script = $caption;
+			$type = 'inline';
 		}
 		$script = '<script type="text/javascript+protovis">'.$script.'</script>';
 	}
