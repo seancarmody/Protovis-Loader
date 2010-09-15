@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Protovis_Loader
- * @version 0.2.0
+ * @version 0.2.1
  */
 /*
 Plugin Name: Protovis Loader
 Plugin URI: http://www.stubbornmule.net/resources/protovis-loader/
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
 Author: Sean Carmody
-Version: 0.2.0
+Version: 0.2.1
 Author URI: http://www.stubbornmule.net/
 License: GPL2
 */
@@ -110,7 +110,7 @@ function pvl_load_script( $atts, $content = null ) {
 	}
 	
 
-	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas"';
+	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas">';
 	if ( $type == 'inline')
 		return $script.$noscript;
 	else
