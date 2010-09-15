@@ -66,11 +66,17 @@ function pvl_conditionally_load( $posts ){
 // Function to slurp in your javascript code
 function pvl_load_script( $atts, $content = null ) {
 	extract( shortcode_atts( array(
-		'type' => '',
+		'type' => 'chart',
+		'caption' => '',
 		'src' => '',
 		'img' => '',
-		'alt' => '',
+		'alt' => 'Scripts disabled, cannot display chart.',
 	), $atts ) );
+
+	// Read caption from short-code content only works if src attribute *is* provided
+	// and caption attribute is *not* provided.
+	if ( $content and !$caption and $src )
+		$caption = do_shortcode($content);
 	
 	// Check for browsers which does not support SVG
 	$non_svg = array( 'MSIE', 'Android', 'BlackBerry' );
@@ -79,45 +85,41 @@ function pvl_load_script( $atts, $content = null ) {
 		if (strpos ( $_SERVER['HTTP_USER_AGENT'], $str ) !== FALSE )
 			$using_non_svg = TRUE;
 
-	//$using_ie = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'MSIE' ) !== FALSE);
-	//$using_android = ( strpos( $_SERVER['HTTP_USER_AGENT'], 'Android' ) !== FALSE );
+	// If source attribute is not provided, it is read from the content
+	if ( $src )
+		$script = file_get_contents($src);
+	elseif ( $content )
+		$script = do_shortcode($content);
 	
-	if ( !$alt )
-		$alt = 'Scripts disabled, cannot display chart!';
-
 	if ( $img )
 		$no_script = "<img src='$img' alt='$alt'>";
 	else
 		$no_script = $alt;
 	
-	//if ( $using_ie || $using_android )
-	if ( $content )
-		$caption = '<div class="pvl-caption-text">'.do_shortcode($content).'</div>';
-	else
-		$caption = '';
-
 	if ( $using_non_svg )
 		$script = '';
 	else {
 		$no_script = "<noscript>$no_script</noscript>";
-		if ( $src )
-			$script = file_get_contents($src);
-		else {
-			$script = $caption;
-			$type = 'inline';
-		}
 		$script = '<script type="text/javascript+protovis">'.$script.'</script>';
 	}
-	
+
+	// The CSS styling of captions could be improved.	
+	if ( $caption )
+		$caption = '<div class="pvl-caption-text">'.$caption.'</div>';
 
 	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas">';
-	if ( $type == 'inline')
-		return $script.$noscript;
-	else
-		return $css.$script.$no_script.'</div>'.$caption.'</div><br />';
+
+	switch ( $type ) {
+		case 'chart':
+			return $css.$script.$no_script.'</div>'.$caption.'</div>';
+		case 'inline':
+			return $script.$no_script;
+	}
+	return '';
 }
 
-// Associate shortcode to function
+// Associate shortcodes to loader function
 add_shortcode( 'pvis', 'pvl_load_script' );
+add_shortcode( 'pvload', 'pvl_load_script' );
 
 ?>
