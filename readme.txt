@@ -3,7 +3,7 @@ Contributors: seancarmody
 Tags: protovis, datavisualization, charts, graphics
 Requires at least: 2.8.0
 Tested up to: 3.0.1
-Stable tag: 0.2.1
+Stable tag: 0.3.0
 
 Creates a shortcode to faciliate the use of Protovis data visualization scripts in blog posts.
 
