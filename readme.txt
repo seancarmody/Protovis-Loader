@@ -18,6 +18,24 @@ Protovis Loader makes the whole process a lot easier in two ways:
 1. It ships with a copy of the Protovis javascript library and once the plugin is activated, links to the library will automatically be included in page headers.
 1. It creates a shortcode called [pvis] which makes it very easy to include Protovis scripts in blog posts and pages.
 
+Usage
+=====
+Simply use the [pvis] shortcode in your posts and pages where you want to include a Protovis chart. There are a number of optional parameters:
+
+* type: 'chart' (default) displays a chart in a box with an optional caption, 'inline' has no box (e.g. useful for sparklines)
+* src: path to a Protovis (javascript) code file
+* height: height of canvas box for the chart
+* width: width of canvas box for the chart
+* img: path to a fallback image to use when scripts are blocked or the browser does not support Protovis
+* alt: alt text for the fallback image
+* caption: image caption
+
+If any content is supplied between the opening [pvis] tag and the closing [/pvis] tag, it is taken to be javascript for inclusion. It may also be interpreted as a caption, but *only* if a caption field is not supplied and a src field is supplied.
+
+Here is an example of use of the tag:
+
+[pvis src="http://www.example.com/chart.js" img="fails.png" height="125px"]My Caption![/pvis]
+
 You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/resources/protovis-loader/).
 
 == Installation ==
