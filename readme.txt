@@ -61,6 +61,10 @@ Not yet.
 1. The end result.
 
 == Changelog ==
+= 0.3.0 =
+* Tweaked CSS for caption to improve vertical alignment
+* Added optional height/width dimension parameters for chart canvas
+* Added optional "inline" chart type (no caption no borders)
 
 = 0.2.1 =
 * Fixed error: missing > in css div element
@@ -76,12 +80,11 @@ A variety of very minor tweaks, mainly adhereing to WP coding standards.
 * The first release of the plugin.
 
 == Upgrade Notice ==
+= 0.3.0 =
+* Enhancements: improved CSS and new inline option.
 
 = 0.2.1 =
 * Bug fix: update required for charts to display in some browsers.
-
-= 0.2.0 =
-Upgrade to get the first cut of CSS styling.
 
 == To-Do List ==
 
@@ -89,7 +92,7 @@ This list is not really prioritised yet.
 
 1. Improve user-agent (browser) detection
 1. Create an options page
-1. Incorporate CSS support
+1. Allow custom CSS files
 1. Allow for alterntive specification of the protovis js library
 1. Replace tags in the imported script to allow shortcode parameters to be used in the script
 
