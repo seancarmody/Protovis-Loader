@@ -36,7 +36,7 @@ Here is an example of use of the tag:
 
 [pvis src="http://www.example.com/chart.js" img="fails.png" height="125px"]My Caption![/pvis]
 
-You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/resources/protovis-loader/).
+You can see the plugin in action on [the Stubborn Mule](http://www.stubbornmule.net/resources/protovis-loader/).
 
 == Installation ==
 
