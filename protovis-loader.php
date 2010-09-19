@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Protovis_Loader
- * @version 0.2.1
+ * @version 0.3.0
  */
 /*
 Plugin Name: Protovis Loader
 Plugin URI: http://www.stubbornmule.net/resources/protovis-loader/
 Description: Creates a shortcode to faciliate the use of Protovis scripts.
 Author: Sean Carmody
-Version: 0.2.1
+Version: 0.3.0
 Author URI: http://www.stubbornmule.net/
 License: GPL2
 */
@@ -67,6 +67,8 @@ function pvl_conditionally_load( $posts ){
 function pvl_load_script( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'type' => 'chart',
+		'height' => '',
+		'width' => '',
 		'caption' => '',
 		'src' => '',
 		'img' => '',
@@ -89,7 +91,9 @@ function pvl_load_script( $atts, $content = null ) {
 	if ( $src )
 		$script = file_get_contents($src);
 	elseif ( $content )
-		$script = do_shortcode($content);
+		//Note: shortcodes *not* expanded for inline scripts
+		//$script = do_shortcode($content);
+		$script = $content;
 	
 	if ( $img )
 		$no_script = "<img src='$img' alt='$alt'>";
@@ -107,7 +111,18 @@ function pvl_load_script( $atts, $content = null ) {
 	if ( $caption )
 		$caption = '<div class="pvl-caption-text">'.$caption.'</div>';
 
-	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas">';
+	if ( $height )
+		if ( $width)
+			$dim = ' style="height: '.$height.'; width: '.$width.';"';
+		else 
+			$dim = ' style="height: '.$height.';"';
+	else
+		if ( $width)
+			$dim = ' style="width: '.$width.';"';
+		else 
+			$dim = '';
+
+	$css = '<div class="pvl-chart aligncenter"><div class="pvl-canvas"'.$dim.'>';
 
 	switch ( $type ) {
 		case 'chart':
