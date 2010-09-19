@@ -83,9 +83,6 @@ A variety of very minor tweaks, mainly adhereing to WP coding standards.
 = 0.3.0 =
 * Enhancements: improved CSS and new inline option.
 
-= 0.2.1 =
-* Bug fix: update required for charts to display in some browsers.
-
 == To-Do List ==
 
 This list is not really prioritised yet.
